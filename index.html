@@ -44,7 +44,7 @@
 
             let validName = /^[A-Za-zА-Яа-я\s]+$/;
             let validEmail = /^\S+@\S+\.\S+$/;
-            let validPhone = /^\d{10}$/;
+            let validPhone = /^\+\d{11}$/;
 
             if (!validName.test(name)) {
                 document.getElementById("error").innerText = 'Ошибка в имени';
