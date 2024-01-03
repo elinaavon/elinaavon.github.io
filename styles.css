@@ -10,6 +10,7 @@
             font-family: 'Montserrat', sans-serif;
             font-weight: 200;
             color: var(--tg-theme-text-color);
+            background-color: #FFB6C1;
         }
 
         #main {
