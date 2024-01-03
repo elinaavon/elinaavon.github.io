@@ -41,17 +41,22 @@
             let name = document.getElementById("user_name").value;
             let email = document.getElementById("user_email").value;
             let phone = document.getElementById("user_phone").value;
-            if (name.length < 4) {
+
+            let validName = /^[A-Za-zА-Яа-я\s]+$/;
+            let validEmail = /^\S+@\S+\.\S+$/;
+            let validPhone = /^\d{10}$/;
+
+            if (!validName.test(name)) {
                 document.getElementById("error").innerText = 'Ошибка в имени';
-                return;
+            return;
             }
-            if (email.length < 4) {
+            if (!validEmail.test(email)) {
                 document.getElementById("error").innerText = 'Ошибка в email';
-                return;
+            return;
             }
-            if (phone.length < 4) {
-                document.getElementById("error").innerText = 'Ошибка в номере телефонв';
-                return;
+            if (!validPhone.test(phone)) {
+                document.getElementById("error").innerText = 'Ошибка в номере телефона';
+            return;
             }
 
             let data = {
