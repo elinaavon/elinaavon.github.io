@@ -12,63 +12,18 @@
     <div id="main">
         <h1>Club de fresas</h1>
         <img src="./strawberry.png">
-        <p>Мы дарим тебе скидку -10% на первый заказ после прохождения регистрации.</p>
-        <button id="buy">Хочу -10%!</button>
+        <p>We are giving you 10% Off your first order after signing up.</p>
+        <button id="buy">I want -10%!</button>
     </div>
     <form id="form">
-        <h1>Регистрация</h1>
+        <h1>Sign Up</h1>
         <input type="text" placeholder="Name" id="user_name">
         <input type="text" placeholder="Email" id="user_email">
         <input type="text" placeholder="Phone" id="user_phone">
         <div id="error"></div>
-        <button id="order">Получить код</button>
+        <button id="order">Get code</button>
     </form>
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <script>
-        let tg = window.Telegram.WebApp;
-        let buy = document.getElementById("buy");
-        let order = document.getElementById("order");
-        tg.expand();
-
-        buy.addEventListener("click", () => {
-            document.getElementById("main").style.display = "none";
-            document.getElementById("form").style.display = "block";
-            document.getElementById("user_name").value = tg.initDataUnsafe.user.first_name + " " + tg.initDataUnsafe.user.last_name;
-        });
-
-        order.addEventListener("click", () => {
-            document.getElementById("error").innerText = '';
-            let name = document.getElementById("user_name").value;
-            let email = document.getElementById("user_email").value;
-            let phone = document.getElementById("user_phone").value;
-
-            let validName = /^[A-Za-zА-Яа-я\s]+$/;
-            let validEmail = /^\S+@\S+\.\S+$/;
-            let validPhone = /^\+\d{11}$/;
-
-            if (!validName.test(name)) {
-                document.getElementById("error").innerText = 'Ошибка в имени';
-            return;
-            }
-            if (!validEmail.test(email)) {
-                document.getElementById("error").innerText = 'Ошибка в email';
-            return;
-            }
-            if (!validPhone.test(phone)) {
-                document.getElementById("error").innerText = 'Ошибка в номере телефона';
-            return;
-            }
-
-            let data = {
-                name: name,
-                email: email,
-                phone: phone
-            }
-            tg.sendData(JSON.stingify(data));
-
-            tg.close();
-        });
-
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
