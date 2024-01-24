@@ -9,45 +9,45 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands=['start'])
 async def start(message: types.Message):
     markup = types.ReplyKeyboardMarkup(resize_keyboard=True)
-    discount_code_btn = types.KeyboardButton('Получить -10% на первый заказ!')
-    order_btn = types.KeyboardButton('Заказать')
-    new_in_btn = types.KeyboardButton('Посмотреть новинки')
-    track_order_btn = types.KeyboardButton('Отследить заказ')
-    customer_service_btn = types.KeyboardButton('Написать в поддержку')
+    discount_code_btn = types.KeyboardButton('Get 10% Off Your First Order!')
+    order_btn = types.KeyboardButton('Order')
+    new_in_btn = types.KeyboardButton('New In')
+    track_order_btn = types.KeyboardButton('Track Order')
+    customer_service_btn = types.KeyboardButton('Contact Customer Service')
     markup.add(discount_code_btn)
     markup.add(order_btn, new_in_btn)
     markup.add(track_order_btn, customer_service_btn)
 
-    await message.answer(f'Привет, {message.from_user.first_name}!\n'
-                         'Если ты в поиске необычных украшений, которых ни у кого нет - '
-                         'то ты в правильном месте! Мы постоянно в поиске новых интересных дизайнеров по всему миру, чтобы твои украшения всегда привлекали внимание и становились поводом для разговора.\n\n', reply_markup=markup)
+    await message.answer(f'Hi, {message.from_user.first_name}!\n'
+                         'If you\'re looking for jewelry pieces that everybody is going to ask you about  - '
+                         'then you\'re in a right place! We\'re always looking for new new unordinary designers around the world so that you can be the center of attention.\n\n', reply_markup=markup)
 
-@dp.message_handler(lambda message: message.text == 'Получить -10% на первый заказ!')
+@dp.message_handler(lambda message: message.text == 'Get 10% Off Your First Order!')
 async def discount_code(message: types.Message):
     markup = types.InlineKeyboardMarkup()
-    markup.add(types.InlineKeyboardButton('Зарегистрироваться', web_app=WebAppInfo(url='https://elinaavon.github.io/')))
-    await message.answer('Получи скидку -10% на первый заказ при регистрации.', reply_markup=markup)
+    markup.add(types.InlineKeyboardButton('Sign Up', web_app=WebAppInfo(url='https://elinaavon.github.io/')))
+    await message.answer('Get 10% Off For Your First Order.', reply_markup=markup)
 
-@dp.message_handler(lambda message: message.text == 'Заказать')
+@dp.message_handler(lambda message: message.text == 'Order')
 async def order(message: types.Message):
     await message.answer('Напиши название украшения, которое хочешь заказать:')
 
-@dp.message_handler(lambda message: message.text == 'Отследить заказ')
+@dp.message_handler(lambda message: message.text == 'Track Order')
 async def track_order(message: types.Message):
     await message.answer('Напиши номер заказа:')
 
-@dp.message_handler(lambda message: message.text == 'Написать в поддержку')
+@dp.message_handler(lambda message: message.text == 'Contact Customer Service')
 async def contact_customer_service(message: types.Message):
     await message.answer('Пожалуйста, обращайся со всеми вопросами в личные сообщения к @elinaavon')
 
-@dp.message_handler(lambda message: message.text == 'Посмотреть новинки')
+@dp.message_handler(lambda message: message.text == 'New In')
 async def new_in(message: types.Message):
     justine_clenquet_collage = open('./photos/collage.png', 'rb')
     await bot.send_photo(message.chat.id, justine_clenquet_collage.read())
     justine_clenquet_collage.close()
 
     markup_justine = types.InlineKeyboardMarkup()
-    button_justine = types.InlineKeyboardButton('Посмотреть всю коллекцию Justine Clenquet на нашем сайте',
+    button_justine = types.InlineKeyboardButton('Check out Justine Clenquet\'s full collection',
                                                 url='https://justineclenquet.com/en-us')
     markup_justine.add(button_justine)
 
@@ -59,7 +59,7 @@ async def new_in(message: types.Message):
     panconesi.close()
 
     markup_panconesi = types.InlineKeyboardMarkup()
-    button_panconesi = types.InlineKeyboardButton('Посмотреть всю коллекцию Panconesi на нашем сайте',
+    button_panconesi = types.InlineKeyboardButton('Check out Marco Panconesi\'s full collection',
                                                   url='https://marcopanconesi.com/')
     markup_panconesi.add(button_panconesi)
 
