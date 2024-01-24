@@ -33,16 +33,16 @@ order.addEventListener("click", () => {
     }
 
     // Generate a random code
-    let randomCode = generateRandomCode();
+    let random10OffCode = generateRandomCodeFor10Off();
 
     // Display the code
-    alert("Your generated code: " + randomCode);
+    alert("10% Off your fist order\nCode: " + random10OffCode);
 
     let data = {
         name: name,
         email: email,
         phone: phone,
-        code: randomCode
+        code: random10OffCode
     }
 
     // Send data including the code
@@ -51,7 +51,7 @@ order.addEventListener("click", () => {
     tg.close();
 });
 
-function generateRandomCode() {
+function generateRandomCodeFor10Off() {
     const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let code = "";
     for (let i = 0; i < 8; i++) {
