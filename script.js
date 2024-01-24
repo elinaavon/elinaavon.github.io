@@ -36,7 +36,7 @@ order.addEventListener("click", () => {
     let random10OffCode = generateRandomCodeFor10Off();
 
     // Display the code
-    alert("10% Off Your Fist Order Code:\n" + "<strong>" + random10OffCode + "<strong>");
+    alert("<strong>" + "10% Off Your Fist Order Code:\n" + random10OffCode + "</strong>");
 
     let data = {
         name: name,
