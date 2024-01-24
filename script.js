@@ -36,7 +36,7 @@ order.addEventListener("click", () => {
     let random10OffCode = generateRandomCodeFor10Off();
 
     // Display the code
-    window.confirm("10% Off Your First Order Code:\n" + random10OffCode.bold());
+    alert("10% Off Your First Order Code:\n" + random10OffCode);
 
     let data = {
         name: name,
